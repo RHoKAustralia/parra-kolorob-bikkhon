@@ -1,6 +1,6 @@
 
 
-calculateGoogleRoute = function(map, from, to, selectedMode) {
+calculateGoogleRoute = function(map, from, to, selectedMode, index) {
     var directionsService = new google.maps.DirectionsService();
     var directionsRequest = {
       origin: from,
@@ -25,7 +25,10 @@ calculateGoogleRoute = function(map, from, to, selectedMode) {
         var element = rows[0].elements[0];
         var distance = element.distance;
         var duration = element.duration;
-        console.log(distance, duration)
+
+        // Add info on service providers
+        $('#goog-dist-' + index).html(distance.text);
+        $('#goog-dur-' + index).html(duration.text);
 
     });
 

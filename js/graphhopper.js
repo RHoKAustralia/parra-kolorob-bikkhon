@@ -2,7 +2,7 @@
 
 
 var defaultKey = "0edd0047-5b2f-47ca-81e8-4f1bf87b3851";
-var profile = "car";
+var profile = "foot";
 
 
 var createMap = function(divId) {
@@ -16,13 +16,19 @@ var createMap = function(divId) {
     return map;
 }
 
-var routePoints = function() {
-	var host;
-	var ghRouting = new GraphHopperRouting({key: defaultKey, host: host, vehicle: profile, elevation: false});
-	return ghRouting;
+var createRouter = function() {
+    var host;
+    var ghRouting = new GraphHopperRouting({key: defaultKey, host: host, vehicle: profile, elevation: false});
+    return ghRouting;
 }
 
-var setupRoutingAPI = function(map, ghRouting, pointList) {
+var createMatrix = function() {
+	var host;
+	var ghMatrix = new GraphHopperMatrix({key: defaultKey, host: host, vehicle: profile});
+	return ghMatrix;
+}
+
+var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
     var iconObject = L.icon({
         iconUrl: './images/marker-icon.png',
         shadowSize: [50, 64],
@@ -63,6 +69,13 @@ var setupRoutingAPI = function(map, ghRouting, pointList) {
                 "type": "Feature",
                 "geometry": path.points
             });
+
+            // Add info on service providers
+            var distance = Math.round( path.distance / 100 ) / 10;
+            var duration = Math.round(path.time / 1000 / 60);
+            $('#graphhopper-dist-' + index).html( distance + ' km');
+            $('#graphhopper-dur-' + index).html( duration + ' mins');
+
             var outHtml = "Distance in meter:" + path.distance;
             outHtml += "<br/>Times in seconds:" + path.time / 1000;
             outHtml += "<br/><a href='" + ghRouting.getGraphHopperMapsLink() + "'>GraphHopper Maps</a>";
@@ -98,7 +111,8 @@ var setupRoutingAPI = function(map, ghRouting, pointList) {
             }
         }
     });
-    // });
+
+        
 
     var instructionsHeader = $("#instructions-header");
     instructionsHeader.click(function () {
