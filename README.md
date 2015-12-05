@@ -1,5 +1,4 @@
-Bikkhon
-=======
+# Bikkhon
 
 *Bikkhon*, meaning "find" or "locate" in Bengali, is a supplementary project to [Kolorob](https://www.facebook.com/scib.kolorob/), an app under development to help slum dwellers in Mirpur, Dhaka search and navigate to services in their area.
 
