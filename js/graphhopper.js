@@ -42,12 +42,6 @@ var setupRoutingAPI = function(map, ghRouting, pointList) {
     var marker1 = L.marker(point1, {icon: iconObject}).addTo(routingLayer);
     var marker2 = L.marker(point2, {icon: iconObject}).addTo(routingLayer);
 
-    // map.on('click', function (e) {
-    // if (ghRouting.points.length > 1) {
-    //     ghRouting.clearPoints();
-    //     routingLayer.clearLayers();
-    // }
-	
     ghRouting.addPoint(new GHInput(point1.lat, point1.lng));
     ghRouting.addPoint(new GHInput(point2.lat, point2.lng));
 
@@ -129,3 +123,9 @@ drawPoints = function(map, pointList) {
 
 }
 
+
+// map.on('click', function (e) {
+// if (ghRouting.points.length > 1) {
+//     ghRouting.clearPoints();
+//     routingLayer.clearLayers();
+// }

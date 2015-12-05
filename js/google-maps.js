@@ -9,6 +9,27 @@ calculateGoogleRoute = function(map, from, to, selectedMode) {
       unitSystem: google.maps.UnitSystem.METRIC
     };
 
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [from],
+        destinations: [to],
+        travelMode: google.maps.TravelMode["WALKING"],
+        // transitOptions: TransitOptions,
+        // drivingOptions: DrivingOptions,
+	    unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: true,
+        avoidTolls: true,
+      }, function(response, status) {
+      
+        var rows = response.rows;
+        var element = rows[0].elements[0];
+        var distance = element.distance;
+        var duration = element.duration;
+        console.log(distance, duration)
+
+    });
+
+
     directionsService.route(
       directionsRequest,
       function(response, status)	{
