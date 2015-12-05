@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Graphhopper</title>
+</head>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<link rel="stylesheet" href="css/graphhopper.css" />
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/coords.js"></script>
+	<script src="js/graphhopper.js"></script>
+	<script src="js/GHUtil.js"></script>
+	<script src="js/GraphHopperRouting.js"></script>
+	<script src="js/leaflet.js"></script>
+	<script src="js/google-maps.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			jQuery.support.cors = true;
+			var map = createMap("map");
+			var ghRouting = routePoints();
+
+			for (var i = 0; i < schools.length; i++) {
+				var pointA = new L.LatLng(schools[i][0], schools[i][1]);
+				var pointB = new L.LatLng(slums[i][0], slums[i][1]);
+				var pointList = [pointA, pointB];
+				// drawPoints(map, pointList);
+
+				setupRoutingAPI(map, ghRouting, pointList);
+
+				var origin = pointA.lat + "," + pointA.lng;
+				var dest = pointB.lat + "," + pointB.lng;
+				calculateGoogleRoute( map, origin, dest, "car" );
+
+			}
+		})
+
+	</script>
+<body>
+
+	<div id="map">
+
+	</div>
+
+</body>
+
+</html>

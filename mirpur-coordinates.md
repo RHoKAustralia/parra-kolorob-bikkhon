@@ -24,5 +24,3 @@
  - Save Sustain School: 23.8186087, 90.3823897
  - Singer Shelai Shikkha Kendro: 23.8143775, 90.3760017
 
-
-
