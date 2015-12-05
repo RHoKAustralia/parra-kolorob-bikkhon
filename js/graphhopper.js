@@ -24,7 +24,7 @@ var routePoints = function() {
 
 var setupRoutingAPI = function(map, ghRouting, pointList) {
     var iconObject = L.icon({
-        iconUrl: './img/marker-icon.png',
+        iconUrl: './images/marker-icon.png',
         shadowSize: [50, 64],
         shadowAnchor: [4, 62],
         iconAnchor: [12, 40]
