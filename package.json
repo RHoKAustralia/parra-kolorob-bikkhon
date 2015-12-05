@@ -4,7 +4,8 @@
   "description": "Multiple routing services for Kolorob app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,10 @@
   "homepage": "https://github.com/liammagee/parra-kolorob-bikkhon",
   "dependencies": {
     "serve-static": "~1.10.0",
-    "connect": "~3.4.0"
+    "connect": "~3.4.0",
+    "foreman": "~1.4.1"
+  },
+  "engines": {
+    "node": "~0.10.22"
   }
 }
