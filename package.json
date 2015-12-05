@@ -1,0 +1,31 @@
+{
+  "name": "parra-kolorob-bikkhon",
+  "version": "0.0.1",
+  "description": "Multiple routing services for Kolorob app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liammagee/parra-kolorob-bikkhon.git"
+  },
+  "keywords": [
+    "Kolorob",
+    "routing",
+    "services",
+    "graphhopper",
+    "Google",
+    "Maps"
+  ],
+  "author": "Liam Magee, Andrew Leahy",
+  "license": "APL",
+  "bugs": {
+    "url": "https://github.com/liammagee/parra-kolorob-bikkhon/issues"
+  },
+  "homepage": "https://github.com/liammagee/parra-kolorob-bikkhon",
+  "dependencies": {
+    "serve-static": "~1.10.0",
+    "connect": "~3.4.0"
+  }
+}
