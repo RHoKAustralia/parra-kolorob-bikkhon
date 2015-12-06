@@ -44,9 +44,11 @@
 		// Full list of configuration options available at:
 		// https://github.com/hakimel/reveal.js#configuration
 	    vpw = $(window).width();
-	    vph = $(window).height();
+	    vph = $(window).height() / $('section').length * 1.4;
 
 	    $('section').height(vph);
+	    // $('#fader').width(vpw);
+	    // $('#fader').height(vph);
 
 		for (var i = 0; i < slums.length; i++) {
 
@@ -94,19 +96,21 @@
 		<section>
 	    	<div class="row">
 				<div class="header">
-			        <h4 style="vertical-align: top; display: inline">Kolorob Bikkhon - Find the Noise!</h4>
 			        <img src="images/logo-bangla-white-text.png" style="width: 56px; height: 62px; "/>
-				</div>
-			</div>
-		</section>
+			        <h4 style="vertical-align: top; display: inline"><em>Kolorob Bikkhon</em>, Find the Noise!</h4>
 
-		<section>
-	    	<div class="row">
-				<div id="intro">
+					<div id="intro">
 
-					<p><em>Bikkhon</em>, meaning "find" or "locate" in Bengali, is a supplementary project to <a href="http://www.kolorob.info/">Kolorob</a>, an app under development to help slum dwellers in Mirpur, Dhaka search and navigate to services in their area.</p>
+						<div>
+							<img src="images/kolorob-children.jpg" alt="">
+						</div>
 
-					<p>Bikkhon is designed to be a test harness for different routing services, such as <a href="https://developers.google.com/maps/documentation/directions/">Google Maps Directions API</a> and <a href="https://graphhopper.com/">GraphHopper</a>, based on <a href="http://www.openstreetmap.org/">OpenStreetMap</a> data. 
+
+						<p><em>Bikkhon</em>, meaning "find" or "locate" in Bengali, is a supplementary project to <a href="http://www.kolorob.info/">Kolorob</a>, an app under development to help slum dwellers in Mirpur, Dhaka search and navigate to services in their area.</p>
+
+						<p>Bikkhon is designed to be a test harness for different routing services, such as <a href="https://developers.google.com/maps/documentation/directions/">Google Maps Directions API</a> and <a href="https://graphhopper.com/">GraphHopper</a>, based on <a href="http://www.openstreetmap.org/">OpenStreetMap</a> data. 
+
+					</div>					
 				</div>
 			</div>
 		</section>
@@ -114,26 +118,27 @@
 		<section>
 	    	<div class="row">
 				<div id="story">
-
 					<h5>Travelling in Mirpur</h5>
 
-					<div>
-
-					I am a rickshaw puller living 75km away from Gabtali, the central business terminal of Dhaka city. Today, I am there in order to find out a well-paid job in the Mirpur ergion. Before arrival to Gabtali, I communicated to my friend, by called on my mobile phone. He supposed to come to receive me at Gabtali. Due to his workload in a garment factory located at Kazipara, Mirpur 10, it was impossible for him to see me. Therefore, soon after arrival in Gabtali, I had to ask traffic police to reach Kazipara, as I needed to talk to my friend to find a dwelling for the next three months. But I didn't know the extent to which the traffic police  were busy controlling vehicles on the road. So without directions from people or government service providers, I asked a rickshaw puller to drive toward my destination. Although I reached my friend, he was unable to find a suitable location for me, so that I could find a job as a high school cleaner. I needed a full time job, as I do not intend to go back to my village again.
+					<blockquote>
+						<div>
 						
-					</div>
+						I am a rickshaw puller living 75km away from Gabtali, the central business terminal of Dhaka city. Today, I am there in order to find out a well-paid job in the Mirpur ergion. Before arrival to Gabtali, I communicated to my friend, by called on my mobile phone. He supposed to come to receive me at Gabtali. Due to his workload in a garment factory located at Kazipara, Mirpur 10, it was impossible for him to see me. Therefore, soon after arrival in Gabtali, I had to ask traffic police to reach Kazipara, as I needed to talk to my friend to find a dwelling for the next three months. But I didn't know the extent to which the traffic police  were busy controlling vehicles on the road. So without directions from people or government service providers, I asked a rickshaw puller to drive toward my destination. Although I reached my friend, he was unable to find a suitable location for me, so that I could find a job as a high school cleaner. I needed a full time job, as I do not intend to go back to my village again.
+							
+						</div>
 
-					<div>
+						<div>
 
-					Anyway, while going by rickshaw from Gabtali to my destination, I saw a big high school named Surovi High School. It would have been better for me if I had enough information in my cell phone to find out more about other possible locations for similar work.
+						Anyway, while going by rickshaw from Gabtali to my destination, I saw a big high school named Surovi High School. It would have been better for me if I had enough information in my cell phone to find out more about other possible locations for similar work.
 
-					</div>
+						</div>
 
-					<div>
+						<div>
 
-					I want to sleep in an old home, paying 50 TK per night. Alas! I do not have the information about where to go to find out a place to sleep. I desired to get the information about accommodation and food. It is required to send out information via text message in an easy language so that an individual like me can benefit from this service!
+						I want to sleep in an old home, paying 50 TK per night. Alas! I do not have the information about where to go to find out a place to sleep. I desired to get the information about accommodation and food. It is required to send out information via text message in an easy language so that an individual like me can benefit from this service!
 
-					</div>
+						</div>
+					</blockquote>
 
 				</div>
 			</div>
@@ -141,6 +146,8 @@
 			
 		<section>
 	    	<div class="row">
+		        <h5>From Slums to Schools</h5>
+
 				<div id="map">
 
 				</div>

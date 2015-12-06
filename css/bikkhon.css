@@ -1,2 +1,58 @@
-#map { height: 300px; }
+#map { height: 600px; }
+
+html {
+	font-size: 14px;
+}
+a {
+	text-decoration: none;
+}
+
+#intro {
+	margin-top: 1em;
+}
+blockquote {
+	/*font-family:Georgia, "Times New Roman", Times, serif;*/
+    margin-left: 0;
+    /*margin-bottom: 1em;*/
+    padding-left-left: 0;
+}
+
+blockquote h5 {
+    margin-top: 0;
+}
+
+blockquote div {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-left-left: 0;
+}
+
+
+blockquote section:after { 
+    content: "<hr/>";
+} 
+
+blockquote div:first-of-type:before { 
+    content: open-quote;
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#889c0b;
+} 
+blockquote div:last-of-type:after { 
+    content: close-quote;
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#889c0b;
+}
+
+th, td {
+	padding: 0.2em;
+}
+
+.story {
+  max-height: 120px;
+  position: relative;
+  overflow: hidden;
+}
 
