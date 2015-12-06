@@ -35,11 +35,69 @@
   <script src="js/graphhopper.js"></script>
   <script src="js/google-maps.js"></script>
   <script>
+
+  	var map, ghRouting, counter = 0;
+
+  	var clearRoutes = function() {
+
+  	}
+
+  	var addRoute = function(latO, lngO, textO, latD, lngD, textD) {
+  		counter++;
+		var pointA = new L.LatLng(latO, lngO);
+		var pointB = new L.LatLng(latD, lngD);
+
+		var newRow = '<tr><td>'+ textO + '</td>';
+		newRow += '<td>' + textD + '</td>';
+		newRow += '<td id="goog-dist-' + counter + '"></td>';
+		newRow += '<td id="goog-dur-' + counter + '"></td>';
+		newRow += '<td id="graphhopper-dist-' + counter + '"></td>';
+		newRow += '<td id="graphhopper-dur-' + counter + '"></td>';
+		newRow += '</tr>';
+        $('#service-providers tbody').append(newRow);
+
+		var pointList = [pointA, pointB];
+
+		invokeGraphHopperService(map, ghRouting, pointList, counter);
+
+		var origin = pointA.lat + "," + pointA.lng;
+		var dest = pointB.lat + "," + pointB.lng;
+		calculateGoogleRoute( map, origin, dest, "car", counter );
+  	};
+
+  	var randomRoute = function() {
+  		var randomSlum = Math.floor(Math.random() * slums.length);
+  		var randomSchool = Math.floor(Math.random() * schools.length);
+		var latO = slums[randomSlum][0];
+		var lngO = slums[randomSlum][1];
+		var textO = slums[randomSlum][2];
+		var latD = schools[randomSchool][0];
+		var lngD = schools[randomSchool][1];
+		var textD = schools[randomSchool][2];
+		addRoute(latO, lngO, textO, latD, lngD, textD);
+  	};
+
+
+  	var allRoutes = function() {
+		for (var i = 0; i < slums.length; i++) {
+
+			var latO = slums[i][0];
+			var lngO = slums[i][1];
+			var textO = slums[i][2];
+			var latD = schools[i][0];
+			var lngD = schools[i][1];
+			var textD = schools[i][2];
+			addRoute(latO, lngO, textO, latD, lngD, textD);
+
+		};
+  	};
+
 	$(document).ready(function() {
 		jQuery.support.cors = true;
-		var map = createMap("map");
-		var ghRouting = createRouter();
-		var ghMatrix = createMatrix();
+		
+		// Initialise graphhopper
+		map = createMap("map");
+		ghRouting = createRouter();
 
 		// Full list of configuration options available at:
 		// https://github.com/hakimel/reveal.js#configuration
@@ -47,41 +105,16 @@
 	    vph = $(window).height() / $('section').length * 1.4;
 
 	    $('section').height(vph);
-	    // $('#fader').width(vpw);
-	    // $('#fader').height(vph);
-
-		for (var i = 0; i < slums.length; i++) {
-
-			var pointA = new L.LatLng(slums[i][0], slums[i][1]);
-			var pointB = new L.LatLng(schools[i][0], schools[i][1]);
-			var newRow = '<tr><td>'+ slums[i][2] + '</td>';
-			//var newRow = '<tr><td>'+ schools[i][2] + ' (' + schools[i][0] + ', ' + schools[i][1] + ')</td>';
-			//newRow += '<td>(' + slums[i][0] + ', ' + slums[i][1] + ')</td>';
-			newRow += '<td>' + schools[i][2] + '</td>';
-			newRow += '<td id="goog-dist-' + i + '"></td>';
-			newRow += '<td id="goog-dur-' + i + '"></td>';
-			newRow += '<td id="graphhopper-dist-' + i + '"></td>';
-			newRow += '<td id="graphhopper-dur-' + i + '"></td>';
-			newRow += '</tr>';
-	        $('#service-providers tbody').append(newRow);
-
-			var pointList = [pointA, pointB];
-			// drawPoints(map, pointList);
-
-			invokeGraphHopperService(map, ghRouting, pointList, i);
-
-			var origin = pointA.lat + "," + pointA.lng;
-			var dest = pointB.lat + "," + pointB.lng;
-			calculateGoogleRoute( map, origin, dest, "car", i );
-		};
 
 		$('#random-route').click(function() {
-			console.log('random route');
+			randomRoute();
 		});
 
 		$('#all-routes').click(function() {
-			console.log('all routes');
+			allRoutes();
 		});
+
+		allRoutes();
 	});
 
 
@@ -155,12 +188,18 @@
 	        <h5>From Slums to Schools</h5>
 	    	<div class="row">
 				
-			    <div class="two columns">
+			    <div class="three columns">
 					<input id="random-route" class="button-primary" type="button" value="random route">
 			    </div>
 				
-			    <div class="two columns">
+			    <div class="three columns">
 					<input id="all-routes" class="button-primary" type="button" value="all routes">
+			    </div>
+
+			    <div class="three columns">
+			    </div>
+
+			    <div class="three columns">
 			    </div>
 
 			</div>
