@@ -1,6 +1,6 @@
 
-    var distanceTotal = 0;
-    var durationTotal = 0;
+    var googDistanceTotal = 0;
+    var googDurationTotal = 0;
 
 calculateGoogleRoute = function(map, from, to, selectedMode, index) {
     var directionsService = new google.maps.DirectionsService();
@@ -28,15 +28,15 @@ calculateGoogleRoute = function(map, from, to, selectedMode, index) {
         var element = rows[0].elements[0];
         var distance = element.distance;
         var duration = element.duration;
-      	distanceTotal += (Math.round(distance.value/100)/10);
-      	durationTotal += duration.value;
+      	googDistanceTotal += Math.round(distance.value/100);
+      	googDurationTotal += duration.value;
 
         // Add info on service providers
         $('#goog-dist-' + index).html(distance.text);
         $('#goog-dur-' + index).html(duration.text);
 
-      	$('#goog-dis-tot').html( distanceTotal + ' kms' );
-      	$('#goog-dur-tot').html( Math.round(durationTotal /60) + ' mins' );
+      	$('#goog-dis-tot').html( googDistanceTotal / 10 + ' kms' );
+      	$('#goog-dur-tot').html( Math.round(googDurationTotal / 60) + ' mins' );
     });
 
 

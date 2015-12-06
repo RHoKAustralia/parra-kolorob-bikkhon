@@ -6,17 +6,34 @@ var profile = "foot";
 
 var graphTotalDistance = 0;
 var graphTotalDuration = 0;
+var tileLayer;
 
 var createMap = function(divId) {
     var map = L.map(divId);
     // Mirpur 
     map.setView([23.8318897, 90.3684564], 12);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    tileLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-    //map.setView([52.521235, 13.3992], 12);
+	})
+    tileLayer.addTo(map);
     return map;
 }
+
+
+var clearMap = function(map) {
+    var layers = [];
+    map.eachLayer(function (layer) {
+        layers.push(layer);
+    });
+
+    for (var i = 0; i < layers.length; i++ ) {
+        var layer = layers[i]
+        if (layer != tileLayer) {
+            map.removeLayer(layer);
+        }
+    }
+}
+
 
 var createRouter = function() {
     var host;

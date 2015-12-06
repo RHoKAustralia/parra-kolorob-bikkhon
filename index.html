@@ -39,7 +39,17 @@
   	var map, ghRouting, counter = 0;
 
   	var clearRoutes = function() {
-
+  		ghRouting.clearPoints();
+  		$("#service-providers").find("tr.route-data").remove();
+  		graphTotalDistance = 0;
+		graphTotalDuration = 0;
+  		googDistanceTotal = 0;
+		googDurationTotal = 0;
+        $('#graphhopper-dis-tot').html( 0 + ' km');
+        $('#graphhopper-dur-tot').html( 0 + ' mins');
+        $('#goog-dis-tot').html( 0 + ' km');
+        $('#goog-dur-tot').html( 0 + ' mins');
+  		clearMap(map);
   	}
 
   	var addRoute = function(latO, lngO, textO, latD, lngD, textD) {
@@ -47,7 +57,7 @@
 		var pointA = new L.LatLng(latO, lngO);
 		var pointB = new L.LatLng(latD, lngD);
 
-		var newRow = '<tr><td>'+ textO + '</td>';
+		var newRow = '<tr class="route-data"><td>'+ textO + '</td>';
 		newRow += '<td>' + textD + '</td>';
 		newRow += '<td id="goog-dist-' + counter + '"></td>';
 		newRow += '<td id="goog-dur-' + counter + '"></td>';
@@ -112,6 +122,10 @@
 
 		$('#all-routes').click(function() {
 			allRoutes();
+		});
+
+		$('#clear-routes').click(function() {
+			clearRoutes();
 		});
 
 		allRoutes();
@@ -197,6 +211,7 @@
 			    </div>
 
 			    <div class="three columns">
+					<input id="clear-routes" class="button-primary" type="button" value="clear routes">
 			    </div>
 
 			    <div class="three columns">
