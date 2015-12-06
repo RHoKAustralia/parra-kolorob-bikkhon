@@ -140,16 +140,16 @@ var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
 
     var routingLayer = L.geoJson().addTo(map);
     routingLayer.options = {
-        style: {color: "#00cc33", "weight": 5, "opacity": 0.6}
+        style: {color: 'green', "weight": 5, "opacity": 0.4}
     };
 }
 
 drawPoints = function(map, pointList) {
 
 	var firstpolyline = new L.Polyline(pointList, {
-		color: 'red',
-		weight: 3,
-		opacity: 0.5,
+		color: '#ff0033',
+		weight: 5,
+		opacity: 0.4,
 		smoothFactor: 1
 	});
 	firstpolyline.addTo(map);
