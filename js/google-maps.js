@@ -28,7 +28,7 @@ calculateGoogleRoute = function(map, from, to, selectedMode, index) {
         var element = rows[0].elements[0];
         var distance = element.distance;
         var duration = element.duration;
-	distanceTotal += (Math.round(distance.value/100)/10);
+	distanceTotal += Math.round(distance.value/100);
 	durationTotal += duration.value;
 
 	//console.log("distance:"+distance.value + ",duration:"+duration.value);
@@ -37,7 +37,7 @@ calculateGoogleRoute = function(map, from, to, selectedMode, index) {
         $('#goog-dist-' + index).html(distance.text);
         $('#goog-dur-' + index).html(duration.text);
 
-	$('#goog-dis-tot').html( distanceTotal + ' kms' );
+	$('#goog-dis-tot').html( distanceTotal /10 + ' kms' );
 	$('#goog-dur-tot').html( Math.round(durationTotal /60) + ' mins' );
     });
 
