@@ -1,5 +1,3 @@
-// Slums
-
 var slums = [
 
  [ 23.821437, 90.359519, "Pallabi Extension" ],
@@ -14,10 +12,6 @@ var slums = [
  [ 23.790845, 90.387342, "Kachukhet Bazar" ]
 
 ];
-
-
-
-// Schools
 
 var schools = [
 

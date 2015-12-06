@@ -30,7 +30,7 @@
   <script src="js/GraphHopperRouting.js"></script>
   <script src="js/GraphHopperMatrix.js"></script>
   <script src="js/leaflet.js"></script>
-  <script src="js/test-coords-for-mirpur.js"></script>
+  <script src="js/test-locations-for-mirpur.js"></script>
   <script src="js/graphhopper.js"></script>
   <script src="js/google-maps.js"></script>
   <script>
@@ -44,8 +44,10 @@
 
 			var pointA = new L.LatLng(slums[i][0], slums[i][1]);
 			var pointB = new L.LatLng(schools[i][0], schools[i][1]);
-			var newRow = '<tr><td>(' + schools[i][0] + ', ' + schools[i][1] + ')</td>';
-			newRow += '<td>(' + slums[i][0] + ', ' + slums[i][1] + ')</td>';
+			var newRow = '<tr><td>'+ slums[i][2] + '</td>';
+			//var newRow = '<tr><td>'+ schools[i][2] + ' (' + schools[i][0] + ', ' + schools[i][1] + ')</td>';
+			//newRow += '<td>(' + slums[i][0] + ', ' + slums[i][1] + ')</td>';
+			newRow += '<td>' + schools[i][2] + '</td>';
 			newRow += '<td id="goog-dist-' + i + '"></td>';
 			newRow += '<td id="goog-dur-' + i + '"></td>';
 			newRow += '<td id="graphhopper-dist-' + i + '"></td>';
@@ -97,24 +99,34 @@
     </div>
     <div class="row">
       <div style="margin-top: 5%">
-        <h5>Compare services</h5>
+        <h5>Comparing Routing Services</h5>
 
 		<table class="u-full-width" id="service-providers">
 		  <thead>
 		    <tr>
-		      <th colspan="2"></th>
-		      <th colspan="2">Google</th>
-		      <th colspan="2">GraphHopper</th>
-		    </tr>
-		    <tr>
 		      <th>Origin</th>
 		      <th>Destination</th>
+		      <th colspan="2">Google API</th>
+		      <th colspan="2">GraphHopper API</th>
+		    </tr>
+		    <tr>
+		      <th>Slums)</th>
+		      <th>Schools & Madrasa's</th>
 		      <th>Distance</th>
 		      <th>Duration</th>
 		      <th>Distance</th>
 		      <th>Duration</th>
 		    </tr>
 		  </thead>
+                  <tfoot>
+		    <tr>
+		      <th colspan="2"></th>
+		      <th id="goog-dis-tot">goog-dist-tot</th>
+		      <th id="goog-dur-tot">goog-dur-tot</th>
+		      <th id="graphhopper-dis-tot">graph dis</th>
+		      <th id="graphhopper-dur-tot">graph dur</th>
+		    </tr>
+                  </tfoot>
 		  <tbody>
 		  </tbody>
 		</table>

@@ -4,6 +4,8 @@
 var defaultKey = "0edd0047-5b2f-47ca-81e8-4f1bf87b3851";
 var profile = "foot";
 
+var graphTotalDistance = 0;
+var graphTotalDuration = 0;
 
 var createMap = function(divId) {
     var map = L.map(divId);
@@ -75,6 +77,12 @@ var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
             var duration = Math.round(path.time / 1000 / 60);
             $('#graphhopper-dist-' + index).html( distance + ' km');
             $('#graphhopper-dur-' + index).html( duration + ' mins');
+
+		graphTotalDistance += distance;
+		graphTotalDuration += duration;
+
+            $('#graphhopper-dis-tot').html( graphTotalDistance + ' km');
+            $('#graphhopper-dur-tot').html( graphTotalDuration + ' mins');
 
             var outHtml = "Distance in meter:" + path.distance;
             outHtml += "<br/>Times in seconds:" + path.time / 1000;
