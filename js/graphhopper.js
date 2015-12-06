@@ -37,6 +37,18 @@ var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
         shadowAnchor: [4, 62],
         iconAnchor: [12, 40]
     });
+    var slumIcon = L.icon({
+        iconUrl: './images/slum-icon.png',
+        shadowSize: [50, 64],
+        shadowAnchor: [4, 62],
+        iconAnchor: [12, 40]
+    });
+    var schoolIcon = L.icon({
+        iconUrl: './images/school-icon.png',
+        shadowSize: [50, 64],
+        shadowAnchor: [4, 62],
+        iconAnchor: [12, 40]
+    });
     var instructionsDiv = $("#instructions");
 
     ghRouting.clearPoints();
@@ -47,8 +59,8 @@ var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
 
     var point1 = pointList[0];
     var point2 = pointList[1];
-    var marker1 = L.marker(point1, {icon: iconObject}).addTo(routingLayer);
-    var marker2 = L.marker(point2, {icon: iconObject}).addTo(routingLayer);
+    var marker1 = L.marker(point1, {icon: slumIcon}).addTo(routingLayer);
+    var marker2 = L.marker(point2, {icon: schoolIcon}).addTo(routingLayer);
 
     ghRouting.addPoint(new GHInput(point1.lat, point1.lng));
     ghRouting.addPoint(new GHInput(point2.lat, point2.lng));
@@ -120,7 +132,6 @@ var invokeGraphHopperService = function(map, ghRouting, pointList, index) {
         }
     });
 
-        
 
     var instructionsHeader = $("#instructions-header");
     instructionsHeader.click(function () {
