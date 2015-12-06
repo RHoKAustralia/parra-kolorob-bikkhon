@@ -1,0 +1,9 @@
+
+Travelling in Mirpur
+====================
+
+I am a rickshaw puller living 75km away from Gabtali, the central business terminal of Dhaka city. Today, I am there in order to find out a well-paid job in the Mirpur ergion. Before arrival to Gabtali, I communicated to my friend, by called on my mobile phone. He supposed to come to receive me at Gabtali. Due to his workload in a garment factory located at Kazipara, Mirpur 10, it was impossible for him to see me. Therefore, soon after arrival in Gabtali, I had to ask traffic police to reach Kazipara, as I needed to talk to my friend to find a dwelling for the next three months. But I didn't know the extent to which the traffic police  were busy controlling vehicles on the road. So without directions from people or government service providers, I asked a rickshaw puller to drive toward my destination. Although I reached my friend, he was unable to find a suitable location for me, so that I could find a job as a high school cleaner. I needed a full time job, as I do not intend to go back to my village again.
+
+Anyway, while going by rickshaw from Gabtali to my destination, I saw a big high school named Surovi High School. It would have been better for me if I had enough information in my cell phone to find out more about other possible locations for similar work.
+
+I want to sleep in an old home, paying 50 TK per night. Alas! I do not have the information about where to go to find out a place to sleep. I desired to get the information about accommodation and food. It is required to send out information via text message in an easy language so that an individual like me can benefit from this service!
